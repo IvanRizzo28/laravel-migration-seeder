@@ -10,9 +10,9 @@ class PageController extends Controller
 {
     //
     public function index(){
+        $date=date('Y-m-d');
 
-        $tmp= Train::all();
-
+        $tmp= Train::whereDate('orario_partenza', $date)->get();
 
         return view("home",compact('tmp'));
     }
